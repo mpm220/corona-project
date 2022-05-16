@@ -9,12 +9,11 @@ if __name__ == "__main__":
     file_path = "./data/covid/WHO-COVID-19-global-data.csv"
     df = pd.read_csv(file_path)
 
-    """ Question, how did the growth in new cases change after vaccines were rolled out on 2020-12-02? """
     # find earliest recorded covid case in data set
     earliestReportedCase = df['Date_reported'].min()
     # sort data by date reported
     df.sort_values('Date_reported')
-    # obtain data from up until 2020-12-02 
+    # obtain data up bto and including 2020-12-02 
     preVaccine = df.loc[(df.Date_reported < '2020-12-03')]
     # find cumulative cases by country
     grouped_pre_df = preVaccine.groupby('Country')
@@ -35,12 +34,13 @@ if __name__ == "__main__":
         post_vaccine_results[key] = country["Cumulative_cases"].max()
     
     
-    """Join result dictionary into one dataframe"""
+    """Join result dictionaries into one dataframe"""
     pre_result_df = pd.DataFrame(pre_vaccine_results.values(), index = pre_vaccine_results.keys(), columns=["pre_vaccine_total"])
     pre_result_df.index.name = "Country"
     post_result_df = pd.DataFrame(post_vaccine_results.values(), index = post_vaccine_results.keys(), columns=["post_vaccine_total"])
     post_result_df.index.name = "Country"
     end_data = pd.merge(pre_result_df, post_result_df, left_index = True, right_index=True)
     end_data['delta'] = end_data['post_vaccine_total'] - end_data['pre_vaccine_total']
-    print(end_data.sort_values(by=['delta'], ascending=False))
+    print(end_data.sort_values(by=['delta'], ascending=False).head())
+    
     
