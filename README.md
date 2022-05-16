@@ -2,8 +2,11 @@ Basic pandas project - used the WHO-covid-19-global-data to practice pandas:
 
 Which countries had the most new cases of covid reported during the year after the vaccine was rolled out on 2020-12-02?
 
-pre_vaccine_total: timeframe from earliest case in dataset to the day of release 2020-12-02
-post_vaccine_total: 
+pre_vaccine_total: timeframe from earliest case in dataset to the day of release 2020-12-02.
+post_vaccine_total: same length of time as above following the release of vaccine ( 2020-12-02 to 2021-10-03 ).
+delta: post_vaccine_total - pre_vaccine_total to obtain new cases over time frame.
+
+results:
 
                           pre_vaccine_total  post_vaccine_total     delta
 Country
