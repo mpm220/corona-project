@@ -1,4 +1,4 @@
-Basic pandas project - used the WHO-covid-19-global-data to practice pandas:
+# used the WHO-covid-19-global-data to practice pandas:
 
 Which countries had the most new cases of covid reported during the year after the vaccine was rolled out on 2020-12-02?
 
