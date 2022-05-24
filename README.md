@@ -8,8 +8,8 @@ delta: post_vaccine_total - pre_vaccine_total to obtain new cases over time fram
 
 results:
 
-                          pre_vaccine_total  post_vaccine_total     delta
-Country
+Country                           pre_vaccine_total  post_vaccine_total     delta
+
 United States of America           13700830            43227577  29526747
 India                               9499413            33791061  24291648
 Brazil                              6335878            21427073  15091195
